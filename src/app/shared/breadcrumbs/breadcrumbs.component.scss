@@ -1,0 +1,8 @@
+:host {
+  height: min-content;
+  font-size: medium;
+
+  a:visited {
+    color: var(--mat-toolbar-container-text-color, var(--mat-app-on-surface));
+  }
+}

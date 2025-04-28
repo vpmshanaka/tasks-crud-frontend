@@ -1,0 +1,77 @@
+<mat-toolbar class="Title-toolbar">
+  <mat-toolbar-row class="flex-row shrink-row">
+    <breadcrumbs [menuItems]="breadCrumbs"></breadcrumbs>
+
+  </mat-toolbar-row>
+  <mat-toolbar-row class="flex-row">
+    <h1>Task Management</h1>
+    <div class="flex"></div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<form [formGroup]="form" class="container">
+  <mat-card class="ot-card form-card">
+    <mat-card-header>
+      <mat-card-title>
+        <span class="page-title-icon">
+          <i class="fa-solid fa-list-check"></i>
+        </span>
+        Add Task
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content class="flex-column">
+      <p>Enter a title and description for the task.</p>
+
+      <mat-form-field>
+        <mat-label>Title</mat-label>
+        <input matInput type="text" formControlName="title" />
+        @if (form.controls.title.errors?.['required']) {
+        <mat-error>Title is required.</mat-error>
+        } @if (form.controls.title.errors?.['maxlength']) {
+        <mat-error>Maximum length exceeded.</mat-error>
+        } @if (form.controls.title.invalid && form.controls.title.touched) {
+        <i
+          matIconSuffix
+          class="fa-solid fa-circle-exclamation fa-lg error-icon color-error-40"
+        ></i>
+        }
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Description</mat-label>
+        <textarea
+          matInput
+          type="text"
+          formControlName="description"
+          maxlength="500"
+        ></textarea>
+        <mat-hint>Maximum 500 characters</mat-hint>
+        @if (form.controls.description.errors?.['required']) {
+        <mat-error>Description is required.</mat-error>
+        } @if (form.controls.description.invalid && form.controls.description.touched) {
+        <i
+          matIconSuffix
+          class="fa-solid fa-circle-exclamation fa-lg error-icon color-error-40"
+        ></i>
+        }
+      </mat-form-field>
+
+      <mat-divider></mat-divider>
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <button
+        mat-stroked-button
+        color="primary-stroked-button"
+        [routerLink]="'/tasks'"
+        routerLinkActive="router-link-active"
+      >
+        Back
+      </button>
+
+      <button mat-flat-button [disabled]="!form.valid" (click)="submit()">
+        Submit Task
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</form>

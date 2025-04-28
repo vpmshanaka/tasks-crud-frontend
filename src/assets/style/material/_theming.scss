@@ -1,0 +1,60 @@
+@use "@angular/material" as mat;
+
+@mixin generate-transparency-variables($name, $color, $reverse) {
+	--#{$name}-transparency-high: #{rgba($color, 0.2)};
+	--#{$name}-transparent: #{rgba($color, 0.5)};
+	--#{$name}-transparency-low: #{rgba($color, 0.8)};
+	--#{$name}: #{$color};
+	--#{$name}-reverse-transparency-high: #{rgba($reverse, 0.2)};
+	--#{$name}-reverse-transparent: #{rgba($reverse, 0.5)};
+	--#{$name}-reverse-transparency-low: #{rgba($reverse, 0.8)};
+	--#{$name}-reverse: #{$reverse};
+}
+
+@mixin generate-dark-css-variables($name, $color) {
+  --#{$name}-lowest: #{mat.get-color-from-palette($color, 900)};
+  --#{$name}-lowerer: #{mat.get-color-from-palette($color, 800)};
+  --#{$name}-lower: #{mat.get-color-from-palette($color, 700)};
+  --#{$name}-low: #{mat.get-color-from-palette($color, 600)};
+  --#{$name}-default: #{mat.get-color-from-palette($color, 500)};
+  --#{$name}-mid: #{mat.get-color-from-palette($color, 400)};
+  --#{$name}-high: #{mat.get-color-from-palette($color, 200)};
+  --#{$name}-higher: #{mat.get-color-from-palette($color, 200)};
+  --#{$name}-higherer: #{mat.get-color-from-palette($color, 100)};
+  --#{$name}-highest: #{mat.get-color-from-palette($color, 50)};
+  --#{$name}-transparency-high: #{mat.get-color-from-palette(
+      $color,
+      "default",
+      0.2
+    )};
+  --#{$name}-transparent: #{mat.get-color-from-palette($color, "default", 0.5)};
+  --#{$name}-transparency-low: #{mat.get-color-from-palette(
+      $color,
+      "default",
+      0.8
+    )};
+}
+
+@mixin generate-css-variables($name, $color) {
+	--#{$name}-lowest: #{mat.get-color-from-palette($color, 50)};
+	--#{$name}-lowerer: #{mat.get-color-from-palette($color, 100)};
+	--#{$name}-lower: #{mat.get-color-from-palette($color, 200)};
+	--#{$name}-low: #{mat.get-color-from-palette($color, 300)};
+	--#{$name}-mid: #{mat.get-color-from-palette($color, 400)};
+	--#{$name}-default: #{mat.get-color-from-palette($color, 500)};
+	--#{$name}-high: #{mat.get-color-from-palette($color, 600)};
+	--#{$name}-higher: #{mat.get-color-from-palette($color, 700)};
+	--#{$name}-higherer: #{mat.get-color-from-palette($color, 800)};
+	--#{$name}-highest: #{mat.get-color-from-palette($color, 900)};
+	--#{$name}-transparency-high: #{mat.get-color-from-palette(
+			$color,
+			"default",
+			0.2
+		)};
+	--#{$name}-transparent: #{mat.get-color-from-palette($color, "default", 0.5)};
+	--#{$name}-transparency-low: #{mat.get-color-from-palette(
+			$color,
+			"default",
+			0.8
+		)};
+}

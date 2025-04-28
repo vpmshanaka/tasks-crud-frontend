@@ -1,0 +1,71 @@
+// This class overrides MatInput and displays chrome's native timepicker from html input
+.mdc-text-field__input::-webkit-calendar-picker-indicator {
+  display: block !important;
+}
+
+// This class allows grids to dynamically grow their height inside of a mat tab
+.tabs-container {
+  .mat-mdc-tab-body-wrapper {
+    height: 100% !important;
+  }
+}
+
+/** Apply OT colors and styles to Mat Cards */
+mat-card.ot-card {
+  // TODO: Color system
+  --mdc-elevated-card-container-color: white !important;
+  --mdc-elevated-card-container-elevation: 0 !important;
+
+  //TODO: color system updates
+  border: 1px solid rgba(238, 238, 238, 0.902);
+
+  mat-card-header {
+    display: flex;
+    align-items: center;
+    gap: var(--layout-gap);
+    //TODO: color system updates
+    border-bottom: 1px solid rgba(238, 238, 238, 0.902);
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+    padding-bottom: var(--layout-gap);
+  }
+
+  mat-toolbar {
+    background-color: var(--mdc-elevated-card-container-color);
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+  }
+}
+
+.snack-bar-error {
+  --mdc-snackbar-container-color: #b3261e; //todo: use theme
+  --mdc-snackbar-supporting-text-color: white;
+  --mat-mdc-snack-bar-button-color: white;
+}
+
+.snack-bar-info {
+  --mdc-snackbar-container-color: #2979ff; //todo: use theme
+  --mdc-snackbar-supporting-text-color: white;
+  --mat-mdc-snack-bar-button-color: white;
+}
+
+//hack: there has to be a better way of overriding the action text on a snackbar
+.mat-mdc-button.mat-mdc-snack-bar-action:not(:disabled) :not([color]) {
+  color: white;
+  text-align: right;
+}
+
+.ot-dialog-8 {
+  --mdc-dialog-container-shape: 8px;
+  --mdc-dialog-container-color: white;
+}
+
+.mat-datepicker-content {
+  background-color: white !important;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2) !important;
+}
+
+.mat-datepicker-popup {
+  right: 0 !important;
+  transform: translateX(-10%) !important;
+}

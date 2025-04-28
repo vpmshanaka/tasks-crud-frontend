@@ -1,0 +1,25 @@
+<h2 mat-dialog-title>Delete Task</h2>
+<mat-dialog-content>
+  You are about to delete the task <strong>{{ data.title }}</strong> . Do you want to proceed?
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button
+    #closeDialogBtn
+    mat-stroked-button
+    class="primary-stroked-button"
+    (click)="onNoClick()"
+  >
+    Cancel
+  </button>
+  <button
+    #deleteBtn
+    cdkFocusInitial
+    mat-flat-button
+    class="warn-button"
+    (click)="onClick()"
+  >
+
+  <i class="fa-solid fa-trash fa-lg button-icon"></i>Delete task
+
+  </button>
+</mat-dialog-actions>

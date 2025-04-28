@@ -1,0 +1,83 @@
+.ag-theme-quartz,
+.ag-theme-quartz-dark {
+  --ag-grid-height: 6px;
+  --ag-row-height: calc(var(--ag-grid-height) * 5) !important;
+}
+
+.ag-header {
+  background-color: white !important;
+  // var(
+  //   --primary-default,
+  //   rgba(245, 245, 245, 0.64)
+  // ) !important;
+}
+
+//  some themes need a contrasting color set for the text
+// TODO: for overiding ag grid styles on a per-theme basis, include these
+// .ag-header-row {
+//   color: white !important;
+// }
+
+// minimum height is too large for single
+.ag-center-cols-clipper {
+  min-height: 25px !important;
+}
+
+.single-row-grid .ag-row-last {
+  border-bottom-width: 0px !important;
+}
+
+.ag-cell,
+.ag-header-cell {
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+
+// Detail grid padding is too high
+.ag-details-row.ag-details-row-fixed-height {
+  padding: 10px !important;
+}
+
+.cell-renderer-material-button {
+  --inline-action-button-height: calc(var(--ag-row-height) * 0.7);
+  display: flex;
+  align-self: center;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: var(--standard-gap);
+  box-sizing: border-box;
+  height: var(--ag-row-height);
+  --mdc-typography-button-line-height: 0.9em !important;
+  --mdc-typography-button-font-size: 0.9em;
+  --mdc-text-button-container-height: 100%;
+
+  & .button-wrapper {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    box-sizing: border-box;
+
+    & .mat-mdc-button-base {
+      height: var(--inline-action-button-height) !important;
+    }
+  }
+}
+
+/**  
+  Reference the grid card class from the 
+  general layout styles 
+*/
+.ot-card {
+  ag-grid-angular {
+    --ag-wrapper-border-radius: 0px 0px 12px 12px !important;
+    --ag-border-radius: 0px 0px 12px 12px !important;
+  }
+
+  .ag-root-wrapper {
+    border-top: var(--ag-borders) var(--ag-border-color);
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+  }
+}

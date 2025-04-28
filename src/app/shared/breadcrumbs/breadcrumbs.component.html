@@ -1,0 +1,18 @@
+@for (item of menuItems; track item.label; let first = $first; let last = $last)
+{
+<!-- Skip the divider before the first item -->
+@if (!first) { - }
+
+<!-- The last item should be a label not a link, so default to that -->
+@if (item.url) {
+<a
+  [routerLink]="[item.url]"
+  routerLinkActive="router-link-active"
+  ariaCurrentWhenActive="page"
+  matTooltip="Navigate to the {{ item.label }} page."
+  tabindex="0"
+  >{{ item.label }}</a
+>
+} @else {
+<span>{{ item.label }}</span>
+} }

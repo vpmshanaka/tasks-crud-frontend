@@ -1,0 +1,106 @@
+/* You can add global styles to this file, and also import other style files */
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use "@angular/material" as mat;
+// Plus imports for other components in your app.
+
+@use "assets/style/material-overrides.scss";
+@use "assets/style/general-layout.scss";
+
+// TODO: INIT if not using AG Grid, remove this block of styles
+@use "ag-grid-community/styles/ag-grid.css";
+@use "ag-grid-community/styles/ag-theme-alpine.css";
+@use "assets/style/ag-grid-overrides.scss";
+
+
+
+//@use "assets/style/material/theming.scss";
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the theme object.
+$theme: mat.define-theme(
+  (
+    color: (
+      theme-type: light,
+      primary: mat.$azure-palette,
+      tertiary: mat.$blue-palette,
+    ),
+    density: (
+      scale: 0,
+    ),
+    typography: (
+      brand-family: "Inter",
+      bold-weight: 900,
+    ),
+  )
+);
+
+.primary-stroked-button {
+  color: mat.get-theme-color($theme, primary, 40) !important;
+  font-weight: bold !important;
+  border-color: mat.get-theme-color($theme, primary, 40) !important;
+}
+
+.warn-button {
+  font-weight: bold !important;
+  background-color: mat.get-theme-color($theme, error, 40) !important;
+}
+
+.color-primary-40 {
+  color: mat.get-theme-color($theme, primary, 40) !important;
+}
+
+.color-error-40 {
+  color: mat.get-theme-color($theme, error, 40) !important;
+}
+
+
+
+// @include generate-css-variables("primary", mat.$azure-palette);
+// @include generate-css-variables("tertiary", mat.$blue-palette);
+// @include generate-transparency-variables("contrast", white, black);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+:root {
+  @include mat.all-component-themes($theme);
+  @include mat.menu-overrides(
+    (
+      container-color: white //todo: use theme,,,,,,,
+    )
+  );
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  //@import "assets/style/material-theme/light-theme.scss";
+}
+
+body {
+  margin: 0;
+  font-family: Inter, sans-serif;
+}
+
+
+.mat-task-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // padding: 8em;
+    padding-top: 8em;
+    margin-bottom: 8em;
+    max-width: 100%;
+    overflow-x: hidden;
+  
+  }
+  
+  mat-card-header {
+    padding: 0px 0px 3px 0px;
+  }

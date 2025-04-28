@@ -1,0 +1,29 @@
+:host {
+  height: 100%;
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  grid-template-rows: min-content 1fr min-content;
+  grid-template-areas:
+    "sidebar header"
+    "sidebar main"
+    "sidebar footer";
+
+  .header {
+    grid-area: header;
+  }
+
+  .main {
+    grid-area: main;
+    overflow: auto;
+    // TODO: color system
+    background-color: var(--mat-app-background-color);
+  }
+
+  .sidebar {
+    grid-area: sidebar;
+  }
+
+  // .footer {
+  //   grid-area: footer;
+  // }
+}

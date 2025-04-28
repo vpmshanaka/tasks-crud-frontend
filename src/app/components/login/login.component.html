@@ -1,0 +1,58 @@
+<form [formGroup]="form" class="mat-task-card">
+  <mat-card class="ot-card form-card">
+    <mat-card-header>
+      <mat-card-title>
+        <span class="page-title-icon">
+          <i class="fa-solid fa-user"></i>
+        </span>
+        Welcome to login
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="flex-column">
+      <p>
+        Please enter your credentials to log in to your account.
+      </p>
+
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email" />
+          @if (form.controls.email.errors?.['required']) {
+          <mat-error>Email is required.</mat-error>
+          }@else if (form.controls.email.errors?.['email']) {
+          <mat-error>Please enter a valid email address</mat-error>
+          }@if (form.controls.email.invalid && form.controls.email.touched) {
+          <i
+            matIconSuffix
+            class="fa-solid fa-circle-exclamation fa-lg error-icon color-error-40"
+          ></i>
+          }
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password" />
+        @if (form.controls.password.errors?.['required']) {
+        <mat-error>Password is required.</mat-error>
+        } @if (form.controls.password.invalid &&
+        form.controls.password.touched) {
+        <i
+          matIconSuffix
+          class="fa-solid fa-circle-exclamation fa-lg error-icon color-error-40"
+        ></i>
+        }
+      </mat-form-field>
+
+      <mat-divider></mat-divider>
+    </mat-card-content>
+    <mat-card-actions align="end">
+
+      <span>Need an account?<a mat-button [routerLink]="['/signup']">SIGN UP</a></span>
+      <button mat-flat-button [disabled]="!form.valid" (click)="onSubmit()">
+        Login
+      </button>
+     
+    </mat-card-actions>
+  </mat-card>
+</form>
+
+  

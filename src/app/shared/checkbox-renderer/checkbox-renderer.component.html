@@ -1,0 +1,13 @@
+@if (conditional) {
+<mat-checkbox
+  [aria-label]="label"
+  [matTooltip]="label"
+  [checked]="value" 
+  (change)="performAction( )"
+>
+</mat-checkbox>
+}
+@if (disabled) {
+  <mat-checkbox disabled checked>
+  </mat-checkbox>
+}

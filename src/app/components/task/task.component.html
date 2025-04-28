@@ -1,0 +1,29 @@
+<mat-toolbar class="title-toolbar">
+  <mat-toolbar-row class="flex-row">
+    <h1>Task Management</h1>
+    <div class="flex"></div>
+    <a
+      mat-stroked-button
+      [routerLink]="['/task/add']"
+      routerLinkActive="router-link-active"
+      class="primary-stroked-button"
+    >
+      <i class="fa-solid fa-list-check me-2 button-icon"></i> Add Task
+    </a>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="container">
+  <mat-card class="ot-card grid-card">
+    <mat-card-header>
+      <h2>Tasks</h2>
+    </mat-card-header>
+    <mat-card-content>
+      <ag-grid-angular
+        [gridOptions]="gridOptions"
+        [rowData]="rowData$ | async"
+        class="ag-theme-alpine"
+      ></ag-grid-angular>
+    </mat-card-content>
+  </mat-card>
+</div>

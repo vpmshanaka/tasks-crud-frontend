@@ -1,0 +1,25 @@
+
+<button
+  mat-icon-button
+  matTooltip="Click to {{ actionLabel }}"
+  [matMenuTriggerFor]="menu"
+  class="cell-renderer-material-button"
+>
+  <i class="{{ icon }}"></i>
+</button>
+
+<mat-menu #menu="matMenu">
+  <a
+    mat-menu-item
+    [routerLink]="['/task/edit', task.id]"
+  >
+    Edit
+  </a>
+  <button
+    mat-menu-item
+    (click)="confirmDeleteTask(task)"
+    [disabled]="disabled"
+  >
+    Delete
+  </button>
+</mat-menu>

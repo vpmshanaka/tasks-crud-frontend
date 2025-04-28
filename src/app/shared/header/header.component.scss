@@ -1,0 +1,44 @@
+mat-toolbar {
+  justify-content: flex-end;
+  gap: var(--standard-gap);
+}
+
+.avatar {
+  height: 45px;
+  width: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 50%;
+  text-align: center;
+  background-color: #adb5bd;
+  color: #fff;
+ 
+}
+
+.user-info {
+  min-width: 15em;
+  display: grid;
+  grid-template-areas: "avatar . name" "avatar . customer";
+  grid-template-columns: min-content var(--layout-gap) 1fr;
+  grid-template-rows: min-content  min-content;
+  align-items: center; 
+  padding: 1em;
+
+  .user-avatar {
+    grid-area: avatar; 
+  }
+
+  .name {
+    grid-area: name;
+    font-weight: bolder;
+    font-size: 16px;
+  }
+
+  .customer {
+    grid-area: customer;
+    font-weight: bolder;
+    font-size: 12px;
+  }
+}

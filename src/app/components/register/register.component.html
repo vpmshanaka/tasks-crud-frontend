@@ -1,0 +1,88 @@
+<form [formGroup]="form" class="mat-task-card">
+  <mat-card class="ot-card form-card">
+    <mat-card-header>
+      <mat-card-title>
+        <span class="page-title-icon">
+          <i class="fa-solid fa-user-plus"></i>
+        </span>
+        Sign Up
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="flex-column">
+      <p>
+        Please fill in the information below to create your account.
+      </p>
+
+      <mat-form-field>
+        <mat-label>Full Name</mat-label>
+        <input matInput type="name" formControlName="name" />
+          @if (form.controls.name.errors?.['required']) {
+          <mat-error>Email is required.</mat-error>
+          }@if (form.controls.name.invalid && form.controls.name.touched) {
+          <i
+            matIconSuffix
+            class="fa-solid fa-circle-exclamation fa-lg error-icon color-error-40"
+          ></i>
+          }
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email" />
+          @if (form.controls.email.errors?.['required']) {
+          <mat-error>Email is required.</mat-error>
+          }@else if (form.controls.email.errors?.['email']) {
+          <mat-error>Please enter a valid email address</mat-error>
+          }@if (form.controls.email.invalid && form.controls.email.touched) {
+          <i
+            matIconSuffix
+            class="fa-solid fa-circle-exclamation fa-lg error-icon color-error-40"
+          ></i>
+          }
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <mat-hint>Password must be at least 6 characters</mat-hint>
+        <input matInput type="text" formControlName="password" />
+        @if (form.controls.password.errors?.['required']) {
+        <mat-error>Password is required.</mat-error>
+        }@else if (form.controls.password.errors?.['minlength']) {
+          <mat-error>Password must be at least 6 characters</mat-error>
+        } @if (form.controls.password.invalid &&
+        form.controls.password.touched) {
+        <i
+          matIconSuffix
+          class="fa-solid fa-circle-exclamation fa-lg error-icon color-error-40"
+        ></i>
+        }
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Confirm Password</mat-label>
+        <input matInput type="text" formControlName="password_confirmation" />
+        @if (form.controls.password_confirmation.errors?.['required']) {
+        <mat-error>Confirm Password is required.</mat-error>
+        }@else if (form.controls.password_confirmation.errors?.['passwordMismatch']) {
+          <mat-error>Passwords must match.</mat-error>
+        } @if (form.controls.password_confirmation.invalid &&
+        form.controls.password_confirmation.touched) {
+        <i
+          matIconSuffix
+          class="fa-solid fa-circle-exclamation fa-lg error-icon color-error-40"
+        ></i>
+        }
+      </mat-form-field>
+
+      <mat-divider></mat-divider>
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <span>Already a user?<a mat-button [routerLink]="['/login']">LOGIN</a></span>
+      <button mat-flat-button [disabled]="!form.valid" (click)="onSubmit()">
+        Register
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</form>
+
+  

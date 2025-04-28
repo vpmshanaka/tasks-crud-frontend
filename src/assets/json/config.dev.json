@@ -1,0 +1,11 @@
+{
+  "environment": "dev",
+  "webApiUrl": "https://dev2-extranet.ontrac.com",
+  "production": false,
+  "appInsights": {
+    "instrumentationKey": "",
+    "cloudRole": "",
+    "cloudRoleTag": "ai.cloud.tag"
+  },
+  "buildNumber": "0.0.0"
+}
